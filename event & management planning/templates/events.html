@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>EventHub</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<section class="container">
+
+    <h1>Available Events</h1>
+
+    <form class="search" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search event, category or location"
+            value="{{ search }}"
+        >
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <div class="cards">
+
+        {% for event in events %}
+
+        <div class="card">
+
+            <h2>{{ event["name"] }}</h2>
+
+            <p>
+                <b>Category:</b>
+                {{ event["category"] }}
+            </p>
+
+            <p>
+                <b>Location:</b>
+                {{ event["location"] }}
+            </p>
+
+            <p>
+                <b>Date:</b>
+                {{ event["date"] }}
+            </p>
+
+            <p>
+                <b>Time:</b>
+                {{ event["time"] }}
+            </p>
+
+            <a class="button" href="/event/{{ event['id'] }}">
+                View Details
+            </a>
+
+        </div>
+
+        {% else %}
+
+        <p>No events found.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+</body>
+</html>

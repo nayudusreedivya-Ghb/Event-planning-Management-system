@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>EventHub</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<section class="container">
+
+    <div class="form-box">
+
+        <h1>Create New Event</h1>
+
+        <form method="POST">
+
+            <label>Event Name</label>
+            <input type="text" name="name" required>
+
+            <label>Category</label>
+
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option>Technology</option>
+                <option>Cultural</option>
+                <option>Sports</option>
+                <option>Business</option>
+                <option>Workshop</option>
+                <option>Other</option>
+            </select>
+
+            <label>Location</label>
+            <input type="text" name="location" required>
+
+            <label>Date</label>
+            <input type="date" name="date" required>
+
+            <label>Time</label>
+            <input type="text" name="time" placeholder="10:00 AM" required>
+
+            <label>Description</label>
+            <textarea name="description" rows="5" required></textarea>
+
+            <button type="submit">Create Event</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>

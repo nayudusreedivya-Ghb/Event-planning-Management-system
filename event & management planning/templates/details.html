@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>EventHub</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<section class="container">
+
+    <div class="details">
+
+        <h1>{{ event["name"] }}</h1>
+
+        <p>
+            <b>Category:</b>
+            {{ event["category"] }}
+        </p>
+
+        <p>
+            <b>Location:</b>
+            {{ event["location"] }}
+        </p>
+
+        <p>
+            <b>Date:</b>
+            {{ event["date"] }}
+        </p>
+
+        <p>
+            <b>Time:</b>
+            {{ event["time"] }}
+        </p>
+
+        <h3>About the Event</h3>
+
+        <p>
+            {{ event["description"] }}
+        </p>
+
+        <br>
+
+        <a
+            class="button"
+            href="/register/{{ event['id'] }}"
+        >
+            Register for Event
+        </a>
+
+    </div>
+
+</section>
+
+</body>
+</html>

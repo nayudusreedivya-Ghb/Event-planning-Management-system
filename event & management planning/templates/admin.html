@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>EventHub</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<section class="container">
+
+    <h1>Event Registrations</h1>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Event</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Event Date</th>
+        </tr>
+
+        {% for registration in registrations %}
+
+        <tr>
+            <td>{{ registration["id"] }}</td>
+            <td>{{ registration["event_name"] }}</td>
+            <td>{{ registration["name"] }}</td>
+            <td>{{ registration["email"] }}</td>
+            <td>{{ registration["phone"] }}</td>
+            <td>{{ registration["event_date"] }}</td>
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="6">
+                No registrations yet.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</section>
+
+</body>
+</html>

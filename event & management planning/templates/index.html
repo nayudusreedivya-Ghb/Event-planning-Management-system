@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Planning & Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>EventHub</h2>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/admin">Admin</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Event Planning & Management Platform</h1>
+
+    <p>
+        Discover, plan and register for exciting events easily.
+    </p>
+
+    <a class="button" href="/events">Explore Events</a>
+</section>
+
+<section class="container">
+
+    <h2>Upcoming Events</h2>
+
+    <div class="cards">
+
+        {% for event in events %}
+
+        <div class="card">
+
+            <h3>{{ event["name"] }}</h3>
+
+            <p><b>Category:</b> {{ event["category"] }}</p>
+
+            <p><b>Location:</b> {{ event["location"] }}</p>
+
+            <p><b>Date:</b> {{ event["date"] }}</p>
+
+            <a class="button" href="/event/{{ event['id'] }}">
+                View Details
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+</body>
+</html>
